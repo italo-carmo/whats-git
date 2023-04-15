@@ -1,6 +1,6 @@
 const express = require('express');
 const venom = require('venom-bot');
-const app = express();
+
 
 const chromiumArgs = ['--disable-setuid-sandbox', '--disable-dev-shm-usage', '--no-sandbox'];
 const puppeteerOptions = { executablePath: 'chromium-browser', args: chromiumArgs };
@@ -31,8 +31,9 @@ venom.create((
 
 function start(client){
   const port = process.env.PORT
+  const app = express();
   app.listen(port, function(){
-    console.log("Servidor Iniciado e escutando na porta 3000");
+    console.log("Servidor Iniciado e escutando na porta :"+port);
   });
   app.get("/api", async function(req,res,next){
     await client.sendText('55'+ req.query.celular + '@c.us', req.query.mensagem);
