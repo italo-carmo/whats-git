@@ -38,6 +38,9 @@ function start(client){
     await client.sendText('55'+ req.query.celular + '@c.us', req.query.mensagem);
     res.json({msg: 'Mensagem enviada com sucesso para: '+req.query.celular});
   })
+  app.get("/teste", async function(req,res,next){
+    res.json({msg: 'Testando'});
+  })
   client.onStateChange((state) => {
     console.log('State changed: ', state);
     if ('CONFLICT'.includes(state)) client.useHere();
