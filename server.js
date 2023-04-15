@@ -7,7 +7,22 @@ const puppeteerOptions = { executablePath: 'chromium-browser', args: chromiumArg
 
 
 
-venom.create(options, null, puppeteerOptions)
+venom.create((
+  'API-Whatsapp', 
+    
+    (base64Qrimg, asciiQR, attempts) => {
+      console.log('Number of attempts to read the qrcode: ', attempts);
+      console.log('Terminal qrcode: ', asciiQR);
+      console.log('base64 image string qrcode: ', base64Qrimg);
+    },
+     (statusSession, session) => {
+      console.log('Status Session: ', statusSession); 
+      console.log('Session name: ', session);
+    },
+    {
+      browserArgs: ['--no-sandbox'],
+      disableWelcome: true,
+    }))
   .then((client) => start(client))
   .catch((erro) => {
     console.log(erro);
