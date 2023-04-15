@@ -36,7 +36,7 @@ function start(client){
     console.log("Servidor Iniciado e escutando na porta :"+port);
   });
   app.get("/api", async function(req,res,next){
-    await client.sendText('5567991350047@c.us', 'teste para gotosica');
+    await client.sendText('556791350047@c.us', 'teste para gotosica');
     res.json({msg: 'Mensagem enviada com sucesso para: '+req.query.celular});
   })
   app.get("/teste", async function(req,res,next){
