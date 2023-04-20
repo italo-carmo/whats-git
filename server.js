@@ -30,7 +30,7 @@ venom.create((
 
 
 function start(client){
-  const port = process.env.PORT
+  const port = 3000
   const app = express();
   app.listen(port, function(){
     console.log("Servidor Iniciado e escutando na porta :"+port);
