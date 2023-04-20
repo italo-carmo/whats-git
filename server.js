@@ -1,6 +1,6 @@
 const express = require('express');
 const venom = require('venom-bot');
-
+require('dotenv')
 
 const chromiumArgs = ['--disable-setuid-sandbox', '--disable-dev-shm-usage', '--no-sandbox'];
 const puppeteerOptions = { executablePath: 'chromium-browser', args: chromiumArgs };
@@ -31,6 +31,7 @@ venom.create((
 
 function start(client){
   const port = process.env.PORT
+  console.log('PORTA: '+port)
   const app = express();
   app.listen(port, function(){
     console.log("Servidor Iniciado e escutando na porta :"+port);
